@@ -87,7 +87,11 @@ func player(p *Poker, max int) int {
 	score := 0
 	for score < max {
 		if card := p.get(); card >= 0 {
-			score += card2score(card)
+			n := card2score(card)
+			score += n
+			if n == 11 && score > 21 {
+				score -= 10
+			}
 			if score > 21 {
 				score = 0
 				break
