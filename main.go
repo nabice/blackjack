@@ -105,14 +105,18 @@ func player(p *Poker, max int) int {
 
 //17 is the best score
 func main() {
-	var a, b int
-	for i := 0; i < 1000000; i++ {
-		score1, score2 := match(17, 18)
-		if score1 > score2 {
-			a += 1
-		} else if score1 < score2 {
-			b += 1
+	for i := 12; i< 22; i++ {
+		for j := 12; j< 22; j++ {
+			var a, b int
+			for k := 0; k < 1000000; k++ {
+				score1, score2 := match(i, j)
+				if score1 > score2 {
+					a += 1
+				} else if score1 < score2 {
+					b += 1
+				}
+			}
+			fmt.Println(i, j, a, b)
 		}
 	}
-	fmt.Println(a, b)
 }
